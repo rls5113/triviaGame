@@ -1,2 +1,1 @@
-# triviagame
-Trivia Game to support portfolio
+ Trivia Game 
