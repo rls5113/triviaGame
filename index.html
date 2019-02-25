@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trivia Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="instructions" class="card">
+            <div class="card-body">
+                <h5 class="card-title">Trivia Game</h5>
+                <h5 class="card-subtitle mb-2 text-muted">Instructions</h5>
+                <p class="card-text">You will have until the clock runs out to answer the questions shown.  Your score will be shown at the end of game timer.  Click the button to begin again.
+            </div>
+        </div>
+        <hr>
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="begin">Time remaining: <span id="countdown-timer">30</span> seconds</h3>
+                    <h4 class="end">Number correct:<span id="correct"></span></h4>
+                    <h4 class="end">Number incorrect:<span id="incorrect"></span></h4>
+                </div>
+            </div>
+            <hr>
+            <form>
+            <div id="question-view"></div>
+            <div id="buttons">
+                <button id="start" class="btn btn-primary" onclick="return false">Start</button>
+                <button id="finish" class="btn btn-primary" onclick="return false">Finish</button>
+
+            </div>
+           </form>
+         </div>
+    </div>
+</body>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="assets/javascript/app.js"></script>
+    
+</html>
