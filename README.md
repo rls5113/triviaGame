@@ -1,1 +1,3 @@
- Trivia Game 
+ The Trivia Game is a portfolio assignment for a private curriculum certificate course.  
+ This effort is a very simple, phase one, version of a Trivia game, questions and answers for useless, or seemingly useless information.  This version presents a very short list of questions, and requires you to finish in a very short period of time.  Future iterations for this version may offer a more extensive bank of questions and question randomization.  This youtube link demonstrates the assignment, https://youtu.be/fBIj8YsA9dk .
+ A phase two version could possibly present each question, one at a time, and offer a short timer to answer each question.  Counters will keep current values for answers correct and incorrect. if time expires, descriptive text or images associated to the question is shown.  A total quiz timer will keep track of how much time you are taking for the overall effort.  link https://youtu.be/xhmmiRmxQ8Q 
