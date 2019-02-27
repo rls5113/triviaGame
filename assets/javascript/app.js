@@ -1,31 +1,38 @@
+
 window.onload = function() {
     console.log("onload");
     $("#start").on("click",start);
     $("#finish").on("click",stop);
-    $(".answerInput").on("click",evaluate);
+    $("#reset").on("click",reset);
+    buttonState("reset");
 }
+// $( document ).ready(function() {
+//     console.log( "ready!" );
+
+
+
 var countdownTimer;
 var time = 30;
+var correctCounter = 0;
+var incorrectCounter = 0;
 var correctAnswers = [];
 var userAnswers = [];
+var gameoverFlag;
 var gameQuestions = [
-    ["What color is the sky?",["blue","skillet","biscuit","dog"],0],//a
-    ["How many dwarfs in Snow White?",[2,7,9,10],1],//b
-    ["Who is the real Batman?",["John Wayne","Wayne Newton","Bruce Wayne","Lil Wayne"],2],//c
-    ["Where was the gunfight at OK coral?",["Pearl Harbor, HI","Gettysburg, PA","Deadwood, SD, ","Tombstone, AZ"],3]//d
+    ["On a normal day, what color is usually associated with the sky?",["blue","skillet","biscuit","dog"],0],//a
+    ["In the story \"Snow White\", how many dwarfs were mentioned?",[2,7,9,10],1],//b
+    ["Who is the Batman's true identity?",["John Wayne","Wayne Newton","Bruce Wayne","Lil Wayne"],2],//c
+    ["In which city did the gunfight at OK coral take place?",["Pearl Harbor, HI","Gettysburg, PA","Deadwood, SD, ","Tombstone, AZ"],3]//d
 ];
 /*
 *   function starts the game and timer
 */
 function start() {
 
-    console.log("start");
-    console.log(gameQuestions.length);
-    $(".end").css("display","none");
-    $(".begin").css("display","inline");
-    $("#start").css("display","none");
-    $("#finish").css("display","inline");
-
+    // console.log("start");
+    // console.log(gameQuestions.length);
+    // initializeGlobals();
+    buttonState("start");
     countdownTimer = setInterval(function() {
     time--;
     console.log(time);
@@ -33,34 +40,60 @@ function start() {
     console.log($("#countdown-timer").val());
     if(time <= 0) {
         stop();
-        // clearInterval(countdownTimer);
     }
    }, 1000);
 
    showQuestions();
 }
+function reset () {
+    console.log("reset");
+    buttonState("reset");
+    time = 30;
+    correctCounter = 0;
+    incorrectCounter = 0;
+    correctAnswers = [];
+    userAnswers = [];
+    $("#countdown-timer").text(time);
+    $("#question-view").empty();
+
+}
+function buttonState( state ) {
+    if(state == "start") {
+        // $(".end").css("display","none");
+        $(".begin").css("display","inline");
+        $("#start").css("display","none");
+        $("#finish").css("display","inline");
+        $("#reset").css("display","none");
+    } else if (state == "stop") {
+        $(".end").css("display","inline");
+        // $(".begin").css("display","none");
+        $("#start").css("display","none");
+        $("#finish").css("display","none"); 
+        $("#reset").css("display","inline");   
+    } else if (state == "reset") {
+        $(".end").css("display","none");
+        $("#start").css("display","inline");
+        $("#finish").css("display","none"); 
+        $("#reset").css("display","none");   
+
+    }
+}
 function stop () {
+    console.log("stop");
     clearInterval(countdownTimer);
-    var correctCounter = 0;
-    var incorrectCounter = 0;
+    time = 0;
     for(var i=0;i<userAnswers.length; i++) {
-        
         if(userAnswers[i] === correctAnswers[i]) {
             correctCounter++;
         }
         else{
             incorrectCounter++;
         }
-    }
-    var br = $("<br>");
-    $(".end").append(br);
+    }  //write final values
+    buttonState("stop");
     $("#correct").text(correctCounter);
     $("#incorrect").text(incorrectCounter);
-    $(".end").css("display","inline");
-    $(".begin").css("display","none");
-    $("#start").css("display","inline");
-    $("#finish").css("display","none");
-
+    $(".answerInput").off();
 }
 function evaluate(){
     var id = $(this).prop("id");
@@ -96,6 +129,8 @@ function showQuestions() {
 
         $("#question-view").append(q, a, hr);
     }
+    $(".answerInput").on("change",evaluate);
+
 }
 /**
 *   Presents a dynamic row for each question
@@ -159,4 +194,3 @@ function createRadioButton(str, idx, id) {
 
     return lbl;
 }
-//  start();  

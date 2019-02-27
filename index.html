@@ -14,7 +14,7 @@
             <div class="card-body">
                 <h5 class="card-title">Trivia Game</h5>
                 <h5 class="card-subtitle mb-2 text-muted">Instructions</h5>
-                <p class="card-text">You will have until the clock runs out to answer the questions shown.  Your score will be shown at the end of game timer.  Click the button to begin again.
+                <p class="card-text">To begin the game, click the "Start" button.  You will have 30 seconds to answer four questions.  When you are finished click the "Stop" button to stop the timer and evaluate your final score.  If you do not finish in the allotted time, your unanswered questions will be scored as incorrect.  Click "Reset" button to clear the counters and start the quiz again. Shampoo, rinse, and repeat.  Have fun.
             </div>
         </div>
         <hr>
@@ -22,15 +22,24 @@
             <div class="row">
                 <div class="col-md-12">
                     <h3 class="begin">Time remaining: <span id="countdown-timer">30</span> seconds</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
                     <h4 class="end">Number correct:<span id="correct"></span></h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
                     <h4 class="end">Number incorrect:<span id="incorrect"></span></h4>
                 </div>
             </div>
             <hr>
-            <form>
+            <form id="triviaForm"> 
             <div id="question-view"></div>
             <div id="buttons">
                 <button id="start" class="btn btn-primary" onclick="return false">Start</button>
+                <button id="reset" class="btn btn-primary" onclick="return false">Reset</button>
                 <button id="finish" class="btn btn-primary" onclick="return false">Finish</button>
 
             </div>
