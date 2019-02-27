@@ -29,15 +29,14 @@ var gameQuestions = [
 */
 function start() {
 
-    // console.log("start");
+    console.log("start");
     // console.log(gameQuestions.length);
-    // initializeGlobals();
     buttonState("start");
     countdownTimer = setInterval(function() {
     time--;
     console.log(time);
     $("#countdown-timer").text(time);
-    console.log($("#countdown-timer").val());
+    // console.log($("#countdown-timer").val());
     if(time <= 0) {
         stop();
     }
@@ -93,6 +92,7 @@ function stop () {
     buttonState("stop");
     $("#correct").text(correctCounter);
     $("#incorrect").text(incorrectCounter);
+    //turn off event listeners
     $(".answerInput").off();
 }
 function evaluate(){
@@ -116,7 +116,7 @@ function showQuestions() {
     for(var i=0; i < gameQuestions.length; i++){
         var currentQuestion = gameQuestions[i];
         this.trivia.loadData(currentQuestion);
-        console.log("obj: "+JSON.stringify(this.trivia));
+        // console.log("obj: "+JSON.stringify(this.trivia));
         correctAnswers.push(this.trivia.idxOfCorrectAnswer);
         //initialize user answers to -1
         userAnswers.push(-1);

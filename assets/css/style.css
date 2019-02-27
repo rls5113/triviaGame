@@ -1,6 +1,10 @@
-input , span, h4, label {
+input , span, h4, label, button {
     padding:15px;
+    margin-bottom: 10px;
 }
 .end {
     display: none;
+}
+hr {
+    border: 2px solid #007bff;
 }
